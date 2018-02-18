@@ -18,7 +18,6 @@ ff05dcdf90651c3d98a9cad3df5e471e UnityEngine.Timeline.dll:UnityEngine.Timeline.C
 bfddcc339fade781f72a7bb9403d51f3 Assembly-CSharp.dll:.OVRGazePointer
 5979728add95abdc642051d92f726e95 Assembly-CSharp.dll:.OVRDebugHeadController
 a67e3f8fb73b04ca1684c602972661f2 Assembly-CSharp.dll:.OVRManager
-1d78264f5997bbd89486aa7f74a29c8b Assembly-CSharp.dll:.VRKeyboard
 3b38603cadb65274b1599b23c3351296 Assembly-CSharp.dll:.HUD
 a35dc9cca2faebc5f5f1aeb9e8e47bbe UnityEngine.UI.dll:UnityEngine.UI.AspectRatioFitter
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.UI.dll:UnityEngine.EventSystems.BaseInput
@@ -173,3 +172,4 @@ bba159a45ca64d85248677717f799d3f Assembly-CSharp.dll:.DiskSpawnBehavior
 a8ed45ab553b07236625df6cc6ac449c Assembly-CSharp.dll:.OVRLint
 715ee802f49103c54cba7971ac57cac0 Assembly-CSharp.dll:UnityEngine.EventSystems.OVRInputModule
 584795015275d7765225ad872c0e8bd8 Assembly-CSharp.dll:.OVRGrabber
+9680c3693bb478bcdc5b81d15305ffb7 Assembly-CSharp.dll:.NumericKeyboard
