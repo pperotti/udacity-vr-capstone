@@ -57,6 +57,8 @@ public class GameLogic : MonoBehaviour
 	 */
 	public float incrementOffset = 0.05f;
 
+	public float speed = 2.0f;
+
 	public void Awake()
 	{
 		Debug.Log ("GL.Awake");
@@ -87,6 +89,39 @@ public class GameLogic : MonoBehaviour
 			//hudPanel.transform.Rotate(new Vector3 (0, -180,	0));
 			//scorePanel.transform.Rotate(new Vector3 (0, -180, 0));
 		}
+
+	}
+
+	//Handle keyboard
+	public void Update()
+	{
+		OVRInput.Update ();
+
+		/*
+		// Get input data from keyboard or controller
+		float moveHorizontal = Input.GetAxis("Horizontal");
+
+		// update player position based on input
+		Vector3 position = transform.position;
+		position.x += moveHorizontal * speed * Time.deltaTime;
+
+		//Read input from controller. 
+		Vector2 axis = OVRInput.Get(OVRInput.Axis2D.PrimaryTouchpad);
+
+		Vector3 position = transform.position;
+		position.x += axis.x * speed * Time.deltaTime;
+
+		Debug.Log ("x=" + position.x);
+
+		if (position.x > 0)
+		{
+			OnRightClick ();
+		} 
+		else if (position.x < 0)
+		{
+			OnLeftClick ();
+		}
+		*/
 
 	}
 
@@ -251,6 +286,7 @@ public class GameLogic : MonoBehaviour
 	public void RegisterLocalPlayer(Player player) 
 	{
 		this.localPlayer = player;
+		this.localPlayer.setUseController (true);
 	}
 
 	public void UnRegisterLocalPlayer()

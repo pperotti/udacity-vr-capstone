@@ -18,6 +18,8 @@ public class Player : AirHockeyNetworkBehaviour
 
 	private Rigidbody playerRigidBody;
 
+	bool useController = false;
+
     void Start()
     {
 		Debug.Log ("Player.Start");
@@ -75,10 +77,22 @@ public class Player : AirHockeyNetworkBehaviour
 
 		if (isLocalPlayer) 
 		{
+			OVRInput.Update ();
+
 			GetComponent<MeshRenderer> ().material.color = Color.red;
 
-			float inputX = Input.GetAxis ("Horizontal"); 
+			float inputX = 0.0f;
 
+			if (useController) {
+				Vector2 axis = OVRInput.Get(OVRInput.Axis2D.PrimaryTouchpad);
+				inputX = axis.x; // + movementSpeed + Time.deltaTime;
+			} else {
+				inputX = Input.GetAxis ("Horizontal");
+			}
+
+			Debug.Log ("inputX=" + inputX);
+
+			//Handle Input
 			if (isHost)
 			{
 				handleHostInput (inputX);
@@ -215,4 +229,9 @@ public class Player : AirHockeyNetworkBehaviour
 			disk.AddImpulse ();
         }
     }
+
+	public void setUseController(bool useController) 
+	{
+		this.useController = useController;
+	}
 }

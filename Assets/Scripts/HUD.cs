@@ -6,7 +6,11 @@ using UnityEngine.UI;
 
 public class HUD : MonoBehaviour 
 {
+	//Input Text to be used on platforms that supports InputFields and Keyboards (MACs/PCs)
 	public InputField inputField;
+
+	//Text To be used for VR
+	public Text inputData;
 
 	public Button startServerButton;
 	public Button startClientButton;
@@ -45,12 +49,19 @@ public class HUD : MonoBehaviour
 			+ " networkManager.isActiveAndEnabled=" + GameLogic.Instance.IsNetworkActiveAndEnabled()		
 		);
 
-		if (GameLogic.Instance.IsNetworkActive() == false) 
+		//Get the IP data to use for binding
+		string data = null; 
+		if (inputField != null) 
 		{
-			//FIXME: Use the actual input field
-			//GameLogic.Instance.StartServer (inputField.text);
-			GameLogic.Instance.StartServer ("localhost");
+			data = inputField.text;
+		} else if (inputData != null) 
+		{
+			data = inputData.text;
+		}
 
+		if (GameLogic.Instance.IsNetworkActive() == false && data != null) 
+		{
+			GameLogic.Instance.StartServer (data);
 			UpdateStartServerUI ();
 		}
 			
