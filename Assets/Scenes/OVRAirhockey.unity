@@ -2070,7 +2070,7 @@ GameObject:
   - component: {fileID: 724665314}
   - component: {fileID: 724665313}
   m_Layer: 0
-  m_Name: HUD
+  m_Name: BackgroundImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3469,16 +3469,6 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 114541783065788142, guid: feb67d138856d4b94915adc0fc8f00b0,
-        type: 2}
-      propertyPath: m_Text
-      value: 'Host: 0'
-      objectReference: {fileID: 0}
-    - target: {fileID: 114739388451826718, guid: feb67d138856d4b94915adc0fc8f00b0,
-        type: 2}
-      propertyPath: m_Text
-      value: 'Client: 0'
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: feb67d138856d4b94915adc0fc8f00b0, type: 2}
   m_IsPrefabParent: 0
@@ -4681,11 +4671,6 @@ MonoBehaviour:
   startServerButton: {fileID: 79093186}
   startClientButton: {fileID: 577612632}
   stopServerButton: {fileID: 104151610}
---- !u!1 &1686368500 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1187731433079242, guid: 5cb9fdbf736c24ec68ec6ef5826718a2,
-    type: 2}
-  m_PrefabInternal: {fileID: 1818524967}
 --- !u!1 &1755951144
 GameObject:
   m_ObjectHideFlags: 0
@@ -5057,16 +5042,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
-    - target: {fileID: 114575257503268082, guid: 5cb9fdbf736c24ec68ec6ef5826718a2,
-        type: 2}
-      propertyPath: rayTransform
-      value: 
-      objectReference: {fileID: 1951257695}
-    - target: {fileID: 114575257503268082, guid: 5cb9fdbf736c24ec68ec6ef5826718a2,
-        type: 2}
-      propertyPath: cursorRadius
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5cb9fdbf736c24ec68ec6ef5826718a2, type: 2}
   m_IsPrefabParent: 0
@@ -5193,7 +5168,7 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  pointer: {fileID: 1686368500}
+  pointer: {fileID: 0}
   sortOrder: 0
 --- !u!223 &1836511297
 Canvas:

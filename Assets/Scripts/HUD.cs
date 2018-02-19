@@ -15,18 +15,22 @@ public class HUD : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
+		Debug.Log ("HUD.Start");
 		if (startServerButton != null) 
 		{
+			Debug.Log ("HUD.startServerButton != null");
 			startServerButton.onClick.AddListener(delegate {ClickStartServer();});
 		}
 
 		if (startClientButton != null) 
 		{
+			Debug.Log ("HUD.startClientButton != null");
 			startClientButton.onClick.AddListener(delegate {ClickStartClient();});
 		}
 
 		if (stopServerButton != null) 
 		{
+			Debug.Log ("HUD.stopServerButton != null");
 			stopServerButton.onClick.AddListener(delegate {ClickDisconnect();});
 		}
 
@@ -37,14 +41,15 @@ public class HUD : MonoBehaviour
 
 	public void ClickStartServer()
 	{
-		Debug.Log ("Start Server networkManager.isNetworkActive=" + GameLogic.Instance.IsNetworkActive() 
-			+ " networkManager.isActiveAndEnabled=" + GameLogic.Instance.IsNetworkActiveAndEnabled()
-			+ " ip=" + inputField.text
+		Debug.Log ("HUD.Start Server networkManager.isNetworkActive=" + GameLogic.Instance.IsNetworkActive() 
+			+ " networkManager.isActiveAndEnabled=" + GameLogic.Instance.IsNetworkActiveAndEnabled()		
 		);
 
 		if (GameLogic.Instance.IsNetworkActive() == false) 
 		{
-			GameLogic.Instance.StartServer (inputField.text);
+			//FIXME: Use the actual input field
+			//GameLogic.Instance.StartServer (inputField.text);
+			GameLogic.Instance.StartServer ("localhost");
 
 			UpdateStartServerUI ();
 		}

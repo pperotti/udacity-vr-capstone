@@ -214,7 +214,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30530ad0e40d0a64ea26d753ee4996ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hideByDefault: 1
+  hideByDefault: 0
   showTimeoutPeriod: 1
   hideTimeoutPeriod: 0.1
   dimOnHideRequest: 1
