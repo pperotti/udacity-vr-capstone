@@ -955,7 +955,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a56bd3ab6df0a42489c396183de6ded4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forceRelocatingUI: 1
   clientScore: 0
   hostScore: 0
   resultDialog: {fileID: 785633674}
@@ -963,6 +962,7 @@ MonoBehaviour:
   scorePanel: {fileID: 1487213345}
   incrementOffset: 0.05
   speed: 2
+  useController: 1
 --- !u!4 &403334340
 Transform:
   m_ObjectHideFlags: 0
@@ -1073,6 +1073,11 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 114579812419474918, guid: 6e539bf4b323445a5be9d1ef0fb84fbe,
+        type: 2}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6e539bf4b323445a5be9d1ef0fb84fbe, type: 2}
   m_IsPrefabParent: 0
