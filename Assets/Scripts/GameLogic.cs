@@ -9,11 +9,6 @@ public class GameLogic : MonoBehaviour
 	public static GameLogic Instance { get; private set; }
 
 	/**
-	 * Determine whether the UI elements needs to always look at the user.
-	 */
-	public bool forceRelocatingUI = true;
-
-	/**
 	 * Client & Host Scores
 	 */
 	public int clientScore;
@@ -57,7 +52,13 @@ public class GameLogic : MonoBehaviour
 	 */
 	public float incrementOffset = 0.05f;
 
+	//Add description
 	public float speed = 2.0f;
+
+	/**
+	 * Determine whether OVRInput is used or not.
+	 */
+	public bool useController = false;
 
 	public void Awake()
 	{
@@ -76,19 +77,9 @@ public class GameLogic : MonoBehaviour
 	public void Start () 
 	{
 		Debug.Log ("GL.Start incrementOffset=" + incrementOffset);
-
 		resultDialog.SetActive (false);
-
-		//Network Manager 
 		networkManager = GetComponent<NetworkManager> ();
-
 		hud = hudPanel.GetComponent <HUD> ();
-
-		if (forceRelocatingUI) 
-		{
-			//hudPanel.transform.Rotate(new Vector3 (0, -180,	0));
-			//scorePanel.transform.Rotate(new Vector3 (0, -180, 0));
-		}
 	}
 
 	public void IncrementClientScore()
@@ -254,7 +245,6 @@ public class GameLogic : MonoBehaviour
 	public void RegisterLocalPlayer(Player player) 
 	{
 		this.localPlayer = player;
-		this.localPlayer.setUseController (true);
 		Debug.Log ("GL.RegisterLocalPlayer");
 	}
 
@@ -293,5 +283,9 @@ public class GameLogic : MonoBehaviour
 		} else if (disk != null && disk.isClient) {
 			GameLogic.Instance.StopClient ();
 		}
+	}
+
+	public bool getUseController() {
+		return useController;
 	}
 }

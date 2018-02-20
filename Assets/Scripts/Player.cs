@@ -36,11 +36,6 @@ public class Player : AirHockeyNetworkBehaviour
 	 */
 	private Rigidbody playerRigidBody;
 
-	/**
-	 * Determine whether OVRInput is used or not.
-	 */
-	bool useController = false;
-
     void Start()
     {
 		Debug.Log ("Player.Start");
@@ -72,8 +67,6 @@ public class Player : AirHockeyNetworkBehaviour
 
 		prepareSpawnPoint();
 
-        prepareCameraToActivate();
-
 		if (isLocalPlayer)
 		{
 			GameLogic.Instance.RegisterLocalPlayer (this);
@@ -104,14 +97,12 @@ public class Player : AirHockeyNetworkBehaviour
 
 			float inputX = 0.0f;
 
-			if (useController) {
+			if (GameLogic.Instance.getUseController()) {
 				Vector2 axis = OVRInput.Get(OVRInput.Axis2D.PrimaryTouchpad);
 				inputX = axis.x; // + movementSpeed + Time.deltaTime;
 			} else {
 				inputX = Input.GetAxis ("Horizontal");
 			}
-
-			Debug.Log ("inputX=" + inputX);
 
 			//Handle Input
 			if (isHost)
@@ -226,22 +217,6 @@ public class Player : AirHockeyNetworkBehaviour
 			localPlayerPosition.transform.localPosition.z);
     }
 
-    void prepareCameraToActivate()
-    {
-		/*GameObject clientCameraGameObject = GameObject.FindGameObjectWithTag ("clientCamera");
-		GameObject hostCameraGameObject = GameObject.FindGameObjectWithTag ("hostCamera");
-
-		if (clientCameraGameObject != null) 
-		{
-			clientCameraGameObject.SetActive (!isServer);
-		}
-
-		if (hostCameraGameObject != null) 
-		{
-			hostCameraGameObject.SetActive (isServer);
-		}*/
-    }
-
     void moveDisk()
     {
 		var players = GameObject.FindGameObjectsWithTag("Player");
@@ -250,9 +225,4 @@ public class Player : AirHockeyNetworkBehaviour
 			disk.AddImpulse ();
         }
     }
-
-	public void setUseController(bool useController) 
-	{
-		this.useController = useController;
-	}
 }
