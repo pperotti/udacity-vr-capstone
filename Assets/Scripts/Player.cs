@@ -3,21 +3,42 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
-//[RequireComponent(typeof(Collider))]
 public class Player : AirHockeyNetworkBehaviour
 {
+	
 	public const float movementSpeed = 10f;
 
+	/**
+	 * MAX limit that can be used to scroll horizontally.
+	 */
 	private const float horizontalLimit = 3.5f;
+
+
 	private float increment = 0f;
 
+	/**
+	 * The disk used during the game.
+	 */
 	private Disk disk;
 
+	/**
+	 * Is this player the host or client.
+	 */
 	bool isHost = false;
+
+	/**
+	 * Determine whether the drawing is handled by the Update method or network manager.
+	 */
     bool painted = false;
 
+	/**
+	 * The current RigidBody asociated with the player.
+	 */
 	private Rigidbody playerRigidBody;
 
+	/**
+	 * Determine whether OVRInput is used or not.
+	 */
 	bool useController = false;
 
     void Start()
