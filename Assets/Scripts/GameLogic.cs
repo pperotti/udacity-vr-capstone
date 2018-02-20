@@ -89,40 +89,6 @@ public class GameLogic : MonoBehaviour
 			//hudPanel.transform.Rotate(new Vector3 (0, -180,	0));
 			//scorePanel.transform.Rotate(new Vector3 (0, -180, 0));
 		}
-
-	}
-
-	//Handle keyboard
-	public void Update()
-	{
-		OVRInput.Update ();
-
-		/*
-		// Get input data from keyboard or controller
-		float moveHorizontal = Input.GetAxis("Horizontal");
-
-		// update player position based on input
-		Vector3 position = transform.position;
-		position.x += moveHorizontal * speed * Time.deltaTime;
-
-		//Read input from controller. 
-		Vector2 axis = OVRInput.Get(OVRInput.Axis2D.PrimaryTouchpad);
-
-		Vector3 position = transform.position;
-		position.x += axis.x * speed * Time.deltaTime;
-
-		Debug.Log ("x=" + position.x);
-
-		if (position.x > 0)
-		{
-			OnRightClick ();
-		} 
-		else if (position.x < 0)
-		{
-			OnLeftClick ();
-		}
-		*/
-
 	}
 
 	public void IncrementClientScore()
@@ -265,11 +231,13 @@ public class GameLogic : MonoBehaviour
 
 	public bool IsNetworkActive()
 	{
+		Debug.Log ("GL.IsNetworkActive() -> " + networkManager.isNetworkActive);
 		return networkManager.isNetworkActive;
 	}
 
 	public bool IsNetworkActiveAndEnabled()
 	{
+		Debug.Log ("GL.IsNetworkActiveAndEnabled() -> " + networkManager.isActiveAndEnabled);
 		return networkManager.isActiveAndEnabled;
 	}
 
@@ -287,15 +255,18 @@ public class GameLogic : MonoBehaviour
 	{
 		this.localPlayer = player;
 		this.localPlayer.setUseController (true);
+		Debug.Log ("GL.RegisterLocalPlayer");
 	}
 
 	public void UnRegisterLocalPlayer()
 	{
 		this.localPlayer = null;
+		Debug.Log ("GL.UnRegisterLocalPlayer");
 	}
 
 	public void OnLeftClick()
 	{
+		Debug.Log ("GL.OnLeftClick");
 		if (localPlayer != null) 
 		{
 			localPlayer.MoveLeft ();
@@ -304,6 +275,7 @@ public class GameLogic : MonoBehaviour
 
 	public void OnRightClick()
 	{
+		Debug.Log ("GL.OnRightClick");
 		if (localPlayer != null) 
 		{
 			localPlayer.MoveRight ();
@@ -313,5 +285,13 @@ public class GameLogic : MonoBehaviour
 	public float getIncrement() 
 	{
 		return incrementOffset;
+	}
+
+	public void OnDisconnect() {
+		if (disk != null && disk.isServer) {
+			GameLogic.Instance.StopHost ();
+		} else if (disk != null && disk.isClient) {
+			GameLogic.Instance.StopClient ();
+		}
 	}
 }

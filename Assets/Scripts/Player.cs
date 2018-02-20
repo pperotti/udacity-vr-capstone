@@ -85,7 +85,7 @@ public class Player : AirHockeyNetworkBehaviour
 
 	void Destroy()
 	{
-		Debug.Log ("Destroy()");
+		Debug.Log ("Player.Destroy()");
 		GameLogic.Instance.UnRegisterLocalPlayer ();
 	}
 

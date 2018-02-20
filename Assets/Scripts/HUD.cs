@@ -76,23 +76,17 @@ public class HUD : MonoBehaviour
 
 	public void ClickDisconnect()
 	{
-		Debug.Log ("ClickDisconnect networkManager.isNetworkActive=" + GameLogic.Instance.IsNetworkActive());
-
-		Disk currentDisk = GameLogic.Instance.getDisk ();
-		Debug.Log ("currentDisk->" + currentDisk);
-		if (GameLogic.Instance.IsNetworkActive() && currentDisk != null) 
+		Debug.Log ("GL.ClickDisconnect networkManager.isNetworkActive=" + GameLogic.Instance.IsNetworkActive());
+		if (GameLogic.Instance.IsNetworkActive()) 
 		{
-			if (currentDisk.isClient) {
-				GameLogic.Instance.StopClient ();
-			} else if (currentDisk.isServer) {
-				GameLogic.Instance.StopHost ();
-			}
+			GameLogic.Instance.OnDisconnect ();
 			UpdateDisconnectUI ();
 		}
 	}
 
 	public void UpdateDisconnectUI()
 	{
+		Debug.Log ("HUD.UpdateDisconnectUI()");
 		startServerButton.gameObject.SetActive (true);
 		startClientButton.gameObject.SetActive (true);
 		stopServerButton.gameObject.SetActive (false);
@@ -103,9 +97,8 @@ public class HUD : MonoBehaviour
 	 */
 	public void ClickStartClient()
 	{
-		Debug.Log ("Start Client networkManager.isNetworkActive=" + GameLogic.Instance.IsNetworkActive() 
+		Debug.Log ("HUD.Start Client networkManager.isNetworkActive=" + GameLogic.Instance.IsNetworkActive() 
 			+ " networkManager.isNetworkActive=" + GameLogic.Instance.IsNetworkActiveAndEnabled()
-			+ " ip=" + inputField.text
 		);
 
 		if (GameLogic.Instance.IsNetworkActive() == false) 
@@ -118,6 +111,7 @@ public class HUD : MonoBehaviour
 
 	public void UpdateStartClientUI()
 	{
+		Debug.Log ("HUD.UpdateStartClientUI()");
 		startServerButton.gameObject.SetActive (false);
 		startClientButton.gameObject.SetActive (false);
 		stopServerButton.gameObject.SetActive (true);
@@ -125,11 +119,15 @@ public class HUD : MonoBehaviour
 
 	void OnServerError(NetworkConnection nc, int errorCode)
 	{
-		Debug.Log ("OnServerError!");
+		Debug.Log ("HUD.OnServerError!");
+
+		//TODO: Present error
 	}
 
 	void OnClientError(NetworkConnection nc, int errorCode) 
 	{
-		Debug.Log ("OnClientError!");
+		Debug.Log ("HUD.OnClientError!");
+
+		//TODO: Present error
 	}
 }
