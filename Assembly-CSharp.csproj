@@ -99,7 +99,6 @@
      <Compile Include="Assets\OVR\Scripts\Util\OVRScreenFade.cs" />
      <Compile Include="Assets\OVR\Scripts\Util\OVRTrackedRemote.cs" />
      <Compile Include="Assets\OVR\Scripts\Util\OVRWaitCursor.cs" />
-     <Compile Include="Assets\Scripts\AboutScript.cs" />
      <Compile Include="Assets\Scripts\AirHockeyNetworkBehaviour.cs" />
      <Compile Include="Assets\Scripts\Disk.cs" />
      <Compile Include="Assets\Scripts\DiskSpawnBehavior.cs" />
@@ -107,6 +106,7 @@
      <Compile Include="Assets\Scripts\HUD.cs" />
      <Compile Include="Assets\Scripts\NumericKeyboard.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />
+     <Compile Include="Assets\Scripts\SceneBehavior.cs" />
      <Compile Include="Assets\Scripts\ScoreScript.cs" />
      <Compile Include="Assets\Scripts\Utilities.cs" />
      <None Include="Assets\OVR\Resources\OVRMRUnlitTransparent.shader" />
