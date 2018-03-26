@@ -15,6 +15,7 @@ public class HUD : MonoBehaviour
 	public Button startServerButton;
 	public Button startClientButton;
 	public Button stopServerButton;
+	public Button gameIpButton;
 
 	// Use this for initialization
 	void Start () 
@@ -41,6 +42,7 @@ public class HUD : MonoBehaviour
 		startServerButton.gameObject.SetActive (true);
 		startClientButton.gameObject.SetActive (true);
 		stopServerButton.gameObject.SetActive (false);
+		gameIpButton.gameObject.SetActive (false);
 	}
 
 	public void ClickStartServer()
@@ -72,6 +74,9 @@ public class HUD : MonoBehaviour
 		startServerButton.gameObject.SetActive (false);
 		startClientButton.gameObject.SetActive (false);
 		stopServerButton.gameObject.SetActive (true);
+		gameIpButton.gameObject.SetActive (true);
+
+		addGameIpButton ();
 	}
 
 	public void ClickDisconnect()
@@ -90,6 +95,7 @@ public class HUD : MonoBehaviour
 		startServerButton.gameObject.SetActive (true);
 		startClientButton.gameObject.SetActive (true);
 		stopServerButton.gameObject.SetActive (false);
+		gameIpButton.gameObject.SetActive (false);
 	}
 
 	/**
@@ -98,7 +104,7 @@ public class HUD : MonoBehaviour
 	public void ClickStartClient()
 	{
 		Debug.Log ("HUD.Start Client networkManager.isNetworkActive=" + GameLogic.Instance.IsNetworkActive() 
-			+ " networkManager.isNetworkActive=" + GameLogic.Instance.IsNetworkActiveAndEnabled()
+			+ " networkManager.IsNetworkActiveAndEnabled=" + GameLogic.Instance.IsNetworkActiveAndEnabled()
 		);
 
 		if (GameLogic.Instance.IsNetworkActive() == false) 
@@ -115,19 +121,31 @@ public class HUD : MonoBehaviour
 		startServerButton.gameObject.SetActive (false);
 		startClientButton.gameObject.SetActive (false);
 		stopServerButton.gameObject.SetActive (true);
+		gameIpButton.gameObject.SetActive (true);
+
+		addGameIpButton();
+	}
+
+	void addGameIpButton() {
+		string ipUsed = "Game IP: ";
+		if (GameLogic.Instance.IsNetworkActive ()) {
+			ipUsed += GameLogic.Instance.getGameNetworkAddress ();
+		} else {
+			ipUsed += "Not available";
+		}
+		gameIpButton.GetComponentInChildren<Text>().text = ipUsed;
+		Debug.Log ("HUD.addGameIpButton=" + GameLogic.Instance.getGameNetworkAddress ());
 	}
 
 	void OnServerError(NetworkConnection nc, int errorCode)
 	{
 		Debug.Log ("HUD.OnServerError!");
-
-		//TODO: Present error
+		GameLogic.Instance.ShowNetworkErrortDialog();
 	}
 
 	void OnClientError(NetworkConnection nc, int errorCode) 
 	{
 		Debug.Log ("HUD.OnClientError!");
-
-		//TODO: Present error
+		GameLogic.Instance.ShowNetworkErrortDialog();
 	}
 }

@@ -288,4 +288,16 @@ public class GameLogic : MonoBehaviour
 	public bool getUseController() {
 		return useController;
 	}
+
+	public string getGameNetworkAddress() {
+		return networkManager.networkAddress.ToString ();
+	}
+
+	public void ShowNetworkErrortDialog()
+	{
+		ShowDialog ("There was a problem with your network. Please restart the game!", Color.red, delegate {
+			hud.UpdateDisconnectUI();
+			resetScores();
+		});
+	}
 }
