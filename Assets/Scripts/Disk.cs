@@ -16,6 +16,8 @@ public class Disk : AirHockeyNetworkBehaviour
 
 	private GameObject tableBase;
 
+	private AudioSource puckSound;
+
     void Start()
     {
 		Debug.Log ("Disk.Start()");
@@ -28,6 +30,8 @@ public class Disk : AirHockeyNetworkBehaviour
 
 		tableBase = GameObject.FindGameObjectWithTag("plane");
 		Debug.Log ("tableBase=" + tableBase);
+
+		puckSound = GetComponent<AudioSource> ();
     }
 
 	void OnDestroy()
@@ -90,6 +94,11 @@ public class Disk : AirHockeyNetworkBehaviour
             Destroy(c1);
             Destroy(oc);
         }
+
+		if("wall".Equals (other.gameObject.tag))
+		{
+			puckSound.Play ();
+		}
     }
 
 	private void HandleHostCollisions(Collision other)

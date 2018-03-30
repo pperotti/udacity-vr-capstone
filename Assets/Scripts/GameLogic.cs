@@ -45,7 +45,7 @@ public class GameLogic : MonoBehaviour
 	 */
 	private Player localPlayer;
 
-	private const int MAX_SCORE = 1;
+	public int maxScore = 1;
 
 	/**
 	 * Offset to use when left or right click are pressed.
@@ -129,19 +129,19 @@ public class GameLogic : MonoBehaviour
 
 	public bool IsGameOver()
 	{
-		Debug.Log ("GL.IsGameOver=" + (clientScore == MAX_SCORE || hostScore == MAX_SCORE));
+		Debug.Log ("GL.IsGameOver=" + (clientScore == maxScore || hostScore == maxScore));
 		Debug.Log ("GL.clientScore=" + clientScore + " hostScore=" + hostScore);
-		return clientScore == MAX_SCORE || hostScore == MAX_SCORE;
+		return clientScore == maxScore || hostScore == maxScore;
 	}
 
 	public bool DidClientWin()
 	{
-		return clientScore == MAX_SCORE;
+		return clientScore == maxScore;
 	}
 
 	public bool DidHostWin()
 	{
-		return hostScore == MAX_SCORE;
+		return hostScore == maxScore;
 	}
 
 	private void ShowDialog(string message, UnityEngine.Color color, UnityEngine.Events.UnityAction action)
@@ -300,4 +300,5 @@ public class GameLogic : MonoBehaviour
 			resetScores();
 		});
 	}
+
 }

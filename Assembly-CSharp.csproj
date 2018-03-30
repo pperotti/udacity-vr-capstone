@@ -103,6 +103,7 @@
      <Compile Include="Assets\Scripts\Disk.cs" />
      <Compile Include="Assets\Scripts\DiskSpawnBehavior.cs" />
      <Compile Include="Assets\Scripts\GameLogic.cs" />
+     <Compile Include="Assets\Scripts\GoalLine.cs" />
      <Compile Include="Assets\Scripts\HUD.cs" />
      <Compile Include="Assets\Scripts\NumericKeyboard.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />
