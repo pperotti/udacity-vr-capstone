@@ -32,7 +32,7 @@ The elements delivered are:
 ## For GearVR
 Any GearVR compatible devices listed here. Galaxy S9, S9+, Note8, S8, S8+, S7, S7 edge, Note5, S6 edge+, S6, S6 edge, A8, A8+
 GearVR Headset
-GearVR Controller (suggested but not mandatory).
+GearVR Controller is required.
 
 ## For MAC.
 Mac computer.
@@ -76,6 +76,10 @@ For the capstone, only 4 scenes are provided:
 - Scenes/GearVRAirHockey
 - Scenes/MacAirHockey
 
+# LICENSES
+Sound effects obtained from https://www.zapsplat.com
+Additional sound effects from https://www.zapsplat.com
+Music from https://www.zapsplat.com
 
 # ABOUT THE CONTENTS
 All the contents was create with the idea of creating something that entertain the user and produce the idea of joy.

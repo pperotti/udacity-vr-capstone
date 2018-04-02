@@ -56,9 +56,9 @@ public class GameLogic : MonoBehaviour
 	public float speed = 2.0f;
 
 	/**
-	 * Determine whether OVRInput is used or not.
+	 * Determine whether the platform in use is GearVR
 	 */
-	public bool useController = false;
+	public bool isGearVR = false;
 
 	public void Awake()
 	{
@@ -285,8 +285,8 @@ public class GameLogic : MonoBehaviour
 		}
 	}
 
-	public bool getUseController() {
-		return useController;
+	public bool isGearVRUsed() {
+		return isGearVR;
 	}
 
 	public string getGameNetworkAddress() {

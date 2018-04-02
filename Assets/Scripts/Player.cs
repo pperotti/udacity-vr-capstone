@@ -99,10 +99,10 @@ public class Player : AirHockeyNetworkBehaviour
 
 			bool isMoveDiskKeyPressed = false;
 
-			if (GameLogic.Instance.getUseController()) {
-				Vector2 axis = OVRInput.Get(OVRInput.Axis2D.PrimaryTouchpad);
-				inputX = axis.x; // + movementSpeed + Time.deltaTime;
-				isMoveDiskKeyPressed = OVRInput.Get(OVRInput.Button.One);
+			if (GameLogic.Instance.isGearVRUsed()) {
+				Vector2 axis = OVRInput.Get (OVRInput.Axis2D.PrimaryTouchpad);
+				inputX = axis.x;
+				isMoveDiskKeyPressed = OVRInput.Get(OVRInput.Button.One, OVRInput.GetActiveController()); //OVRInput.Get (OVRInput.Button.PrimaryIndexTrigger);
 			} else {
 				inputX = Input.GetAxis ("Horizontal");
 				isMoveDiskKeyPressed = Input.GetKeyDown (KeyCode.Space);
@@ -126,6 +126,9 @@ public class Player : AirHockeyNetworkBehaviour
 		} 
     }
 
+	private void handleDetaulVRInput() {
+		
+	}
 	void OnDestroy() {
 		print("DragPlayer destroyed");
 	}
@@ -224,7 +227,7 @@ public class Player : AirHockeyNetworkBehaviour
     void moveDisk()
     {
 		var players = GameObject.FindGameObjectsWithTag("Player");
-        // if (players.Length == 2)
+        //if (players.Length == 2)
         {
 			disk.AddImpulse ();
         }

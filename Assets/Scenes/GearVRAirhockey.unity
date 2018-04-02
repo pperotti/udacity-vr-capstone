@@ -1057,7 +1057,8 @@ MonoBehaviour:
   maxScore: 3
   incrementOffset: 0.05
   speed: 3
-  useController: 1
+  useController: 0
+  isGearVR: 1
 --- !u!4 &403334340
 Transform:
   m_ObjectHideFlags: 0
