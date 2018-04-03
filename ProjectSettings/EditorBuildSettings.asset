@@ -5,15 +5,15 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/GearVRWelcome.unity
     guid: 7bbe131325bc747148d1cdcd2f452766
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/GearVRAirhockey.unity
     guid: 48a4f378149c54c48affa0fdf9b68ce6
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/GearVRCredits.unity
     guid: 3e11af391fd0a480e8f9eadb81542e0e
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/MacAirHockey.unity
     guid: d5dd3ec3bb4f34164a34b44f211591e1

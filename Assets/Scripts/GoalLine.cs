@@ -13,6 +13,7 @@ public class GoalLine : MonoBehaviour {
 
 	void OnCollisionEnter(Collision other)
 	{
+		Debug.Log ("AirHockey.OnCollisionEnter");
 		if("disk".Equals (other.gameObject.tag))
 		{
 			sound.Play ();

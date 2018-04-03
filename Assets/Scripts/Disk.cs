@@ -14,13 +14,11 @@ public class Disk : AirHockeyNetworkBehaviour
 
     private bool collisionsManagedByHost;
 
-	private GameObject tableBase;
-
 	private AudioSource puckSound;
 
     void Start()
     {
-		Debug.Log ("Disk.Start()");
+		Debug.Log ("AirHockey.Disk.Start()");
 
 		GameLogic.Instance.setDisk (this);
 
@@ -28,20 +26,21 @@ public class Disk : AirHockeyNetworkBehaviour
         hostScore = GameObject.FindGameObjectWithTag("hostScore");
         clientScore = GameObject.FindGameObjectWithTag("clientScore");
 
-		tableBase = GameObject.FindGameObjectWithTag("plane");
-		Debug.Log ("tableBase=" + tableBase);
-
 		puckSound = GetComponent<AudioSource> ();
+
+		Debug.Log ("AirHockey.Disk.Started()");
     }
 
 	void OnDestroy()
 	{
+		Debug.Log ("AirHockey.Disk.OnDestroy()");
+
 		GameLogic.Instance.setDisk (null);
 	}
 
     private void MsgFromServer(NetworkMessage netMsg)
     {
-		Debug.Log ("Message from server");
+		Debug.Log ("AirHockey.Message from server");
         var msg = netMsg.ReadMessage<ScoresMessage>();
         RefreshScore(msg);
 
@@ -65,18 +64,23 @@ public class Disk : AirHockeyNetworkBehaviour
 
     public override void OnStartServer()
     {
-		Debug.Log ("Disk.OnStartServer()");
+		Debug.Log ("AirHockey.Disk.OnStartServer()");
 
         collisionsManagedByHost = !this.isClient;
+
+		Debug.Log ("AirHockey.Disk.OnStartServer() collisionsManagedByHost=" + collisionsManagedByHost);
     }
 
     public override void OnStartClient()
     {
-		Debug.Log ("Disk.OnStartClient()");
+		Debug.Log ("AirHockey.Disk.OnStartClient()");
 
-        if (!collisionsManagedByHost) {
-            NetworkManager.singleton.client.RegisterHandler(1001, MsgFromServer);
-        }
+		if (!collisionsManagedByHost) {
+			Debug.Log ("AirHockey.Disk.OnStartClient() RegisterHandler collisionsManagedByHost=" + collisionsManagedByHost);
+			NetworkManager.singleton.client.RegisterHandler (1001, MsgFromServer);
+		} else {
+			Debug.Log ("AirHockey.Disk.OnStartClient() RegisterHandler collisionsManagedByHost=" + collisionsManagedByHost);
+		}
     }
 
     void OnCollisionEnter(Collision other)
@@ -113,7 +117,7 @@ public class Disk : AirHockeyNetworkBehaviour
 			if (rigidBody.velocity == Vector3.zero) {
 				AddImpulse ();
 			}
-		} else if ("wall".Equals (other.gameObject.tag)) {
+		} else if ("wall".Equals (other.gameObject.tag)) { //Is this needed?
 			float x = System.Math.Min (3, rigidBody.velocity.x);
 			float z = System.Math.Min (3, rigidBody.velocity.z);
 			rigidBody.velocity = new Vector3 (x, 0, z);					
@@ -139,8 +143,8 @@ public class Disk : AirHockeyNetworkBehaviour
         RefreshScore(msg);
 
 		GameLogic.Instance.CheckHostScore ();
-		Debug.Log ("DISK.client score=" + msg.clientScore + " hostScore=" + msg.hostScore);
-		Debug.Log ("DISK.isGameOver=>" + GameLogic.Instance.IsGameOver());
+		Debug.Log ("AirHockey.Disk.client score=" + msg.clientScore + " hostScore=" + msg.hostScore);
+		Debug.Log ("AirHockey.Disk.isGameOver=>" + GameLogic.Instance.IsGameOver());
 		if (GameLogic.Instance.IsGameOver()) 
 		{
 			GameLogic.Instance.StopHost ();

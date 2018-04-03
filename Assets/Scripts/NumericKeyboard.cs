@@ -8,7 +8,7 @@ public class NumericKeyboard : MonoBehaviour {
 	public UnityEngine.UI.Text ipText;
 
 	public void onButtonSelected(string value) {
-		Debug.Log ("onButtonSelected: 1" + ipText);
+		Debug.Log ("AirHockey.Numkeyboard.onButtonSelected: 1" + ipText);
 		if (ipText != null)
 		{			
 			ipText.text += value;
@@ -16,7 +16,7 @@ public class NumericKeyboard : MonoBehaviour {
 	}
 
 	public void onBackPressed() {
-		Debug.Log ("onBackPressed");
+		Debug.Log ("AirHockey.NumKeyboard.onBackPressed");
 		if (ipText != null)
 		{
 			if (ipText.text.Length == 1) {

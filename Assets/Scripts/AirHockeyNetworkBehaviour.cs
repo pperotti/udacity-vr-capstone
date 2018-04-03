@@ -15,7 +15,7 @@ public abstract class AirHockeyNetworkBehaviour : NetworkBehaviour
 	{
 		airHockeyRoot = GameObject.FindGameObjectWithTag ("AirHockey");
 
-		Debug.Log ("AirHockeyNetworkBehaviour.Awake=>" + airHockeyRoot);
+		Debug.Log ("AirHockey.AirHockeyNetworkBehaviour.Awake=>" + airHockeyRoot);
 
 		scale = airHockeyRoot.transform.localScale;
 
@@ -30,7 +30,7 @@ public abstract class AirHockeyNetworkBehaviour : NetworkBehaviour
 	protected GameObject airHockeyInstantiate (GameObject prefab, Vector3 position, Quaternion rotation)
 	{
 		GameObject obj = Instantiate(prefab);
-		Debug.Log ("AirHockeyNetworkBehaviour.airHockeyInstantiate => " + prefab);
+		Debug.Log ("AirHockey.AirHockeyNetworkBehaviour.airHockeyInstantiate => " + prefab);
 		obj.transform.parent = airHockeyRoot.transform;
 		obj.transform.localPosition = position;
 		obj.transform.localRotation = rotation;
@@ -45,7 +45,7 @@ public abstract class AirHockeyNetworkBehaviour : NetworkBehaviour
 
 	protected Vector3 scaledVelocityVector (Vector3 vector)
 	{
-		Debug.Log ("ScaledVelocityVector=" + vector + "scale=" + scale);
+		Debug.Log ("AirHockey.ScaledVelocityVector=" + vector + "scale=" + scale);
 		return vector;
 	}
 

@@ -20,22 +20,22 @@ public class HUD : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
-		Debug.Log ("HUD.Start");
+		Debug.Log ("AirHockey.HUD.Start");
 		if (startServerButton != null) 
 		{
-			Debug.Log ("HUD.startServerButton != null");
+			Debug.Log ("AirHockey.HUD.startServerButton != null");
 			startServerButton.onClick.AddListener(delegate {ClickStartServer();});
 		}
 
 		if (startClientButton != null) 
 		{
-			Debug.Log ("HUD.startClientButton != null");
+			Debug.Log ("AirHockey.HUD.startClientButton != null");
 			startClientButton.onClick.AddListener(delegate {ClickStartClient();});
 		}
 
 		if (stopServerButton != null) 
 		{
-			Debug.Log ("HUD.stopServerButton != null");
+			Debug.Log ("AirHockey.HUD.stopServerButton != null");
 			stopServerButton.onClick.AddListener(delegate {ClickDisconnect();});
 		}
 
@@ -47,7 +47,7 @@ public class HUD : MonoBehaviour
 
 	public void ClickStartServer()
 	{
-		Debug.Log ("HUD.Start Server networkManager.isNetworkActive=" + GameLogic.Instance.IsNetworkActive() 
+		Debug.Log ("AirHockey.HUD.Start Server networkManager.isNetworkActive=" + GameLogic.Instance.IsNetworkActive() 
 			+ " networkManager.isActiveAndEnabled=" + GameLogic.Instance.IsNetworkActiveAndEnabled()		
 		);
 
@@ -81,7 +81,7 @@ public class HUD : MonoBehaviour
 
 	public void ClickDisconnect()
 	{
-		Debug.Log ("GL.ClickDisconnect networkManager.isNetworkActive=" + GameLogic.Instance.IsNetworkActive());
+		Debug.Log ("AirHockey.GL.ClickDisconnect networkManager.isNetworkActive=" + GameLogic.Instance.IsNetworkActive());
 		if (GameLogic.Instance.IsNetworkActive()) 
 		{
 			GameLogic.Instance.OnDisconnect ();
@@ -91,7 +91,7 @@ public class HUD : MonoBehaviour
 
 	public void UpdateDisconnectUI()
 	{
-		Debug.Log ("HUD.UpdateDisconnectUI()");
+		Debug.Log ("AirHockey.HUD.UpdateDisconnectUI()");
 		startServerButton.gameObject.SetActive (true);
 		startClientButton.gameObject.SetActive (true);
 		stopServerButton.gameObject.SetActive (false);

@@ -62,7 +62,7 @@ public class GameLogic : MonoBehaviour
 
 	public void Awake()
 	{
-		Debug.Log ("GL.Awake");
+		Debug.Log ("AirHockey.GL.Awake");
 		if (Instance == null) {
 			Instance = this;
 			DontDestroyOnLoad (gameObject);
@@ -76,22 +76,23 @@ public class GameLogic : MonoBehaviour
 	// Use this for initialization
 	public void Start () 
 	{
-		Debug.Log ("GL.Start incrementOffset=" + incrementOffset);
+		Debug.Log ("AirHockey.GL.Start incrementOffset=" + incrementOffset);
 		resultDialog.SetActive (false);
 		networkManager = GetComponent<NetworkManager> ();
 		hud = hudPanel.GetComponent <HUD> ();
+		Debug.Log ("AirHockey.GL.Start hud=" + hud);
 	}
 
 	public void IncrementClientScore()
 	{
 		++clientScore;
-		Debug.Log ("GL.incrementClientScore=" + clientScore);
+		Debug.Log ("AirHockey.GL.incrementClientScore=" + clientScore);
 	}
 
 	public void IncrementHostScore()
 	{
 		++hostScore;
-		Debug.Log ("GL.incrementHostScore=" + hostScore);	
+		Debug.Log ("AirHockey.GL.incrementHostScore=" + hostScore);	
 	}
 
 	public void CheckHostScore()
@@ -129,8 +130,8 @@ public class GameLogic : MonoBehaviour
 
 	public bool IsGameOver()
 	{
-		Debug.Log ("GL.IsGameOver=" + (clientScore == maxScore || hostScore == maxScore));
-		Debug.Log ("GL.clientScore=" + clientScore + " hostScore=" + hostScore);
+		Debug.Log ("AirHockey.GL.IsGameOver=" + (clientScore == maxScore || hostScore == maxScore));
+		Debug.Log ("AirHockey.GL.clientScore=" + clientScore + " hostScore=" + hostScore);
 		return clientScore == maxScore || hostScore == maxScore;
 	}
 
@@ -195,14 +196,14 @@ public class GameLogic : MonoBehaviour
 
 	public void StartServer(string networkAddress)
 	{
-		Debug.Log ("GL.StartServer");
+		Debug.Log ("AirHockey.GL.StartServer");
 		networkManager.networkAddress = networkAddress;
 		networkManager.StartHost ();
 	}
 
 	public void StartClient(string networkAddress) 
 	{
-		Debug.Log ("GL.StartClient");
+		Debug.Log ("AirHockey.GL.StartClient");
 		networkManager.networkAddress = networkAddress;
 		networkManager.networkPort = 7777;
 		networkManager.StartClient ();
@@ -210,25 +211,25 @@ public class GameLogic : MonoBehaviour
 
 	public void StopHost() 
 	{
-		Debug.Log ("GL.StopHost");
+		Debug.Log ("AirHockey.GL.StopHost");
 		NetworkManager.singleton.StopHost ();
 	}
 
 	public void StopClient()
 	{
-		Debug.Log ("GL.Disconnect");
+		Debug.Log ("AirHockey.GL.Disconnect");
 		networkManager.StopClient ();
 	}
 
 	public bool IsNetworkActive()
 	{
-		Debug.Log ("GL.IsNetworkActive() -> " + networkManager.isNetworkActive);
+		Debug.Log ("AirHockey.GL.IsNetworkActive() -> " + networkManager.isNetworkActive);
 		return networkManager.isNetworkActive;
 	}
 
 	public bool IsNetworkActiveAndEnabled()
 	{
-		Debug.Log ("GL.IsNetworkActiveAndEnabled() -> " + networkManager.isActiveAndEnabled);
+		Debug.Log ("AirHockey.GL.IsNetworkActiveAndEnabled() -> " + networkManager.isActiveAndEnabled);
 		return networkManager.isActiveAndEnabled;
 	}
 
@@ -245,18 +246,18 @@ public class GameLogic : MonoBehaviour
 	public void RegisterLocalPlayer(Player player) 
 	{
 		this.localPlayer = player;
-		Debug.Log ("GL.RegisterLocalPlayer");
+		Debug.Log ("AirHockey.GL.RegisterLocalPlayer");
 	}
 
 	public void UnRegisterLocalPlayer()
 	{
 		this.localPlayer = null;
-		Debug.Log ("GL.UnRegisterLocalPlayer");
+		Debug.Log ("AirHockey.GL.UnRegisterLocalPlayer");
 	}
 
 	public void OnLeftClick()
 	{
-		Debug.Log ("GL.OnLeftClick");
+		Debug.Log ("AirHockey.GL.OnLeftClick");
 		if (localPlayer != null) 
 		{
 			localPlayer.MoveLeft ();
@@ -265,7 +266,7 @@ public class GameLogic : MonoBehaviour
 
 	public void OnRightClick()
 	{
-		Debug.Log ("GL.OnRightClick");
+		Debug.Log ("AirHockey.GL.OnRightClick");
 		if (localPlayer != null) 
 		{
 			localPlayer.MoveRight ();
@@ -277,7 +278,9 @@ public class GameLogic : MonoBehaviour
 		return incrementOffset;
 	}
 
-	public void OnDisconnect() {
+	public void OnDisconnect() 
+	{
+		Debug.Log ("AirHockey.GL.OnDisconnect disk.isServer=" + disk.isServer + " disk.isClient=" + disk.isClient);
 		if (disk != null && disk.isServer) {
 			GameLogic.Instance.StopHost ();
 		} else if (disk != null && disk.isClient) {

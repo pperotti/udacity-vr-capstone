@@ -38,18 +38,21 @@ public class Player : AirHockeyNetworkBehaviour
 
     void Start()
     {
-		Debug.Log ("Player.Start");
+		Debug.Log ("AirHockey.Player.Start");
 
 		playerRigidBody = GetComponent<Rigidbody> ();
 		GameObject diskObject = GameObject.FindGameObjectWithTag("disk");
-		disk = diskObject.GetComponent<Disk>();
-
-		Debug.Log ("Player.Started");
+		if (diskObject != null) {
+			
+			disk = diskObject.GetComponent<Disk>();
+		} 
+		Debug.Log ("AirHockey.Player.diskObject = " + diskObject);
+		Debug.Log ("AirHockey.Player.Started");
     }
 
     public override void OnStartServer()
     {
-		Debug.Log ("Player.OnStartServer");
+		Debug.Log ("AirHockey.Player.OnStartServer");
 		isHost = true;
 
 		if (isLocalPlayer) 
@@ -58,12 +61,12 @@ public class Player : AirHockeyNetworkBehaviour
 		}
 
 		increment = GameLogic.Instance.getIncrement ();
-		Debug.Log ("Player.increment=" + increment);
+		Debug.Log ("AirHockey.Player.increment=" + increment);
     }
 
 	public override void OnStartLocalPlayer()
     {
-		Debug.Log ("Player.OnStartLocalPlayer");
+		Debug.Log ("AirHockey.Player.OnStartLocalPlayer");
 
 		prepareSpawnPoint();
 
@@ -73,12 +76,12 @@ public class Player : AirHockeyNetworkBehaviour
 		}
 
 		increment = GameLogic.Instance.getIncrement ();
-		Debug.Log ("Player.increment=" + increment);
+		Debug.Log ("AirHockey.Player.increment=" + increment);
     }
 
 	void Destroy()
 	{
-		Debug.Log ("Player.Destroy()");
+		Debug.Log ("AirHockey.Player.Destroy()");
 		GameLogic.Instance.UnRegisterLocalPlayer ();
 	}
 
@@ -102,7 +105,8 @@ public class Player : AirHockeyNetworkBehaviour
 			if (GameLogic.Instance.isGearVRUsed()) {
 				Vector2 axis = OVRInput.Get (OVRInput.Axis2D.PrimaryTouchpad);
 				inputX = axis.x;
-				isMoveDiskKeyPressed = OVRInput.Get(OVRInput.Button.One, OVRInput.GetActiveController()); //OVRInput.Get (OVRInput.Button.PrimaryIndexTrigger);
+				//isMoveDiskKeyPressed = OVRInput.Get(OVRInput.Button.One, OVRInput.GetActiveController()); //OVRInput.Get (OVRInput.Button.PrimaryIndexTrigger);
+				isMoveDiskKeyPressed = OVRInput.Get (OVRInput.Button.PrimaryIndexTrigger);
 			} else {
 				inputX = Input.GetAxis ("Horizontal");
 				isMoveDiskKeyPressed = Input.GetKeyDown (KeyCode.Space);
@@ -126,14 +130,12 @@ public class Player : AirHockeyNetworkBehaviour
 		} 
     }
 
-	private void handleDetaulVRInput() {
-		
-	}
 	void OnDestroy() {
-		print("DragPlayer destroyed");
+		Debug.Log("AirHockey.Player.OnDestroy destroyed");
 	}
 
 	void handleHostInput(float inputX) {
+		Debug.Log ("AirHockey.Player.handleHostInput => " + inputX);
 		if (inputX != 0) {
 
 			var posX = playerRigidBody.transform.localPosition.x;
@@ -170,7 +172,7 @@ public class Player : AirHockeyNetworkBehaviour
 	public void MoveLeft()
 	{
 		float offsetX = transform.localPosition.x - increment;
-		Debug.Log ("Player.MoveRight -> offsetX=" + offsetX);
+		Debug.Log ("AirHockey.Player.MoveLeft -> offsetX=" + offsetX);
 		if (offsetX < -horizontalLimit)
 		{
 			offsetX = -horizontalLimit;
@@ -184,7 +186,7 @@ public class Player : AirHockeyNetworkBehaviour
 	public void MoveRight()
 	{
 		float offsetX = transform.localPosition.x + increment;
-		Debug.Log ("Player.MoveRight -> offsetX=" + offsetX);
+		Debug.Log ("AirHockey.Player.MoveRight -> offsetX=" + offsetX);
 		if (offsetX > horizontalLimit)
 		{
 			offsetX = horizontalLimit;
@@ -218,6 +220,11 @@ public class Player : AirHockeyNetworkBehaviour
 			localPlayerPosition = GameObject.FindGameObjectWithTag ("hostPlayer");
 		}
 
+		Debug.Log ("AirHockey.Player.position x=" + localPlayerPosition.transform.localPosition.x
+			+ " y=" + localPlayerPosition.transform.localPosition.y
+			+ " z=" + localPlayerPosition.transform.localPosition.z
+		);
+
 		transform.localPosition = new Vector3 (
 			localPlayerPosition.transform.localPosition.x, 
 			localPlayerPosition.transform.localPosition.y,
@@ -227,6 +234,7 @@ public class Player : AirHockeyNetworkBehaviour
     void moveDisk()
     {
 		var players = GameObject.FindGameObjectsWithTag("Player");
+		Debug.Log ("AirHockey.Player.moveDisk players=" + players);
         //if (players.Length == 2)
         {
 			disk.AddImpulse ();
