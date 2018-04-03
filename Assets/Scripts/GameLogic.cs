@@ -196,14 +196,14 @@ public class GameLogic : MonoBehaviour
 
 	public void StartServer(string networkAddress)
 	{
-		Debug.Log ("AirHockey.GL.StartServer");
+		Debug.Log ("AirHockey.GL.StartServer networkAddress=" + networkAddress);
 		networkManager.networkAddress = networkAddress;
 		networkManager.StartHost ();
 	}
 
 	public void StartClient(string networkAddress) 
 	{
-		Debug.Log ("AirHockey.GL.StartClient");
+		Debug.Log ("AirHockey.GL.StartClient networkAddress=" + networkAddress);
 		networkManager.networkAddress = networkAddress;
 		networkManager.networkPort = 7777;
 		networkManager.StartClient ();

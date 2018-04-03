@@ -52,6 +52,16 @@ public class HUD : MonoBehaviour
 		);
 
 		//Get the IP data to use for binding
+		string data = getIp();
+		if (GameLogic.Instance.IsNetworkActive() == false && data != null) 
+		{
+			GameLogic.Instance.StartServer (data);
+			UpdateStartServerUI ();
+		}
+			
+	}
+
+	private string getIp() {
 		string data = null; 
 		if (inputField != null) 
 		{
@@ -60,13 +70,7 @@ public class HUD : MonoBehaviour
 		{
 			data = inputData.text;
 		}
-
-		if (GameLogic.Instance.IsNetworkActive() == false && data != null) 
-		{
-			GameLogic.Instance.StartServer (data);
-			UpdateStartServerUI ();
-		}
-			
+		return data;
 	}
 
 	public void UpdateStartServerUI()
@@ -103,21 +107,23 @@ public class HUD : MonoBehaviour
 	 */
 	public void ClickStartClient()
 	{
-		Debug.Log ("HUD.Start Client networkManager.isNetworkActive=" + GameLogic.Instance.IsNetworkActive() 
+		Debug.Log ("AirHockey.HUD.Start Client networkManager.isNetworkActive=" + GameLogic.Instance.IsNetworkActive() 
 			+ " networkManager.IsNetworkActiveAndEnabled=" + GameLogic.Instance.IsNetworkActiveAndEnabled()
 		);
-
-		if (GameLogic.Instance.IsNetworkActive() == false) 
-		{
-			GameLogic.Instance.StartClient (inputField.text);
+		string data = getIp();
+		if (!GameLogic.Instance.IsNetworkActive ()) {
+			Debug.Log ("AirHockey.HUD.StartClient starting... " + data);
+			GameLogic.Instance.StartClient (data);
 
 			UpdateStartClientUI ();
+		} else {
+			Debug.Log ("AirHockey.HUD.StartClient cannot start...");
 		}
 	}
 
 	public void UpdateStartClientUI()
 	{
-		Debug.Log ("HUD.UpdateStartClientUI()");
+		Debug.Log ("AirHockey.HUD.UpdateStartClientUI()");
 		startServerButton.gameObject.SetActive (false);
 		startClientButton.gameObject.SetActive (false);
 		stopServerButton.gameObject.SetActive (true);
@@ -134,18 +140,18 @@ public class HUD : MonoBehaviour
 			ipUsed += "Not available";
 		}
 		gameIpButton.GetComponentInChildren<Text>().text = ipUsed;
-		Debug.Log ("HUD.addGameIpButton=" + GameLogic.Instance.getGameNetworkAddress ());
+		Debug.Log ("AirHockey.HUD.addGameIpButton=" + GameLogic.Instance.getGameNetworkAddress ());
 	}
 
 	void OnServerError(NetworkConnection nc, int errorCode)
 	{
-		Debug.Log ("HUD.OnServerError!");
+		Debug.Log ("AirHockey.HUD.OnServerError!");
 		GameLogic.Instance.ShowNetworkErrortDialog();
 	}
 
 	void OnClientError(NetworkConnection nc, int errorCode) 
 	{
-		Debug.Log ("HUD.OnClientError!");
+		Debug.Log ("AirHockey.HUD.OnClientError!");
 		GameLogic.Instance.ShowNetworkErrortDialog();
 	}
 }

@@ -46,7 +46,7 @@ public class Player : AirHockeyNetworkBehaviour
 			
 			disk = diskObject.GetComponent<Disk>();
 		} 
-		Debug.Log ("AirHockey.Player.diskObject = " + diskObject);
+		Debug.Log ("AirHockey.Player.DiskObject = " + diskObject);
 		Debug.Log ("AirHockey.Player.Started");
     }
 
@@ -61,7 +61,6 @@ public class Player : AirHockeyNetworkBehaviour
 		}
 
 		increment = GameLogic.Instance.getIncrement ();
-		Debug.Log ("AirHockey.Player.increment=" + increment);
     }
 
 	public override void OnStartLocalPlayer()
@@ -76,7 +75,6 @@ public class Player : AirHockeyNetworkBehaviour
 		}
 
 		increment = GameLogic.Instance.getIncrement ();
-		Debug.Log ("AirHockey.Player.increment=" + increment);
     }
 
 	void Destroy()
@@ -105,7 +103,6 @@ public class Player : AirHockeyNetworkBehaviour
 			if (GameLogic.Instance.isGearVRUsed()) {
 				Vector2 axis = OVRInput.Get (OVRInput.Axis2D.PrimaryTouchpad);
 				inputX = axis.x;
-				//isMoveDiskKeyPressed = OVRInput.Get(OVRInput.Button.One, OVRInput.GetActiveController()); //OVRInput.Get (OVRInput.Button.PrimaryIndexTrigger);
 				isMoveDiskKeyPressed = OVRInput.Get (OVRInput.Button.PrimaryIndexTrigger);
 			} else {
 				inputX = Input.GetAxis ("Horizontal");
