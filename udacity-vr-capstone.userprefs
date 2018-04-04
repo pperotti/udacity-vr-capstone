@@ -1,23 +1,22 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/DiskSpawnBehavior.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/HUD.cs">
     <Files>
-      <File FileName="Assets/Scripts/GameLogic.cs" Line="283" Column="108" />
-      <File FileName="Assets/Scripts/DiskSpawnBehavior.cs" Line="10" Column="39" />
-      <File FileName="Assets/Scripts/Disk.cs" Line="29" Column="44" />
-      <File FileName="Assets/Scripts/GoalLine.cs" Line="16" Column="41" />
-      <File FileName="Assets/Scripts/Player.cs" Line="46" Column="4" />
+      <File FileName="Assets/Scripts/Player.cs" Line="105" Column="21" />
+      <File FileName="Assets/Scripts/GameLogic.cs" Line="211" Column="2" />
+      <File FileName="Assets/Scripts/Disk.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/GoalLine.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/SceneBehavior.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/QuitBehavior.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/AirHockeyNetworkBehaviour.cs" Line="44" Column="3" />
-      <File FileName="Assets/Scripts/HUD.cs" Line="94" Column="25" />
-      <File FileName="Assets/Scripts/NumericKeyboard.cs" Line="19" Column="37" />
-      <File FileName="Assets/Scripts/Utilities.cs" Line="22" Column="3" />
+      <File FileName="Assets/Scripts/AirHockeyNetworkBehaviour.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/HUD.cs" Line="116" Column="40" />
+      <File FileName="Assets/Scripts/NumericKeyboard.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Utilities.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
-      <Breakpoint file="/Users/pperotti/Github/udacity-vr-capstone/Assets/Scripts/HUD.cs" line="131" column="1" />
+      <Breakpoint file="/Users/pperotti/Github/udacity-vr-capstone/Assets/Scripts/HUD.cs" line="137" column="1" />
       <Breakpoint file="/Users/pperotti/Github/udacity-vr-capstone/Assets/Scripts/HUD.cs" line="48" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
