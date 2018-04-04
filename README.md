@@ -93,7 +93,7 @@ The following achievements were completed per category:
 ## Completeness
 - Gamification
 
-## Challenges
+## Challenges
 - Multiplayer
 
 # LICENSES
