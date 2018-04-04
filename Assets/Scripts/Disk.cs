@@ -118,15 +118,15 @@ public class Disk : AirHockeyNetworkBehaviour
 				AddImpulse ();
 			}
 		} else if ("wall".Equals (other.gameObject.tag)) { //Is this needed?
-			float x = System.Math.Min (3, rigidBody.velocity.x);
-			float z = System.Math.Min (3, rigidBody.velocity.z);
-			rigidBody.velocity = new Vector3 (x, 0, z);					
+			//float x = System.Math.Min (3, rigidBody.velocity.x);
+			//float z = System.Math.Min (3, rigidBody.velocity.z);
+			//rigidBody.velocity = new Vector3 (x, 0, z);					
 		}
     }
 
 	public void AddImpulse() {		
-		float x = Random.Range(3, 5) * 50f * Time.deltaTime;
-		float z = Random.Range(2, 4) * 50f * Time.deltaTime;
+		float x = Random.Range(1, 5) * 50f * Time.deltaTime;
+		float z = Random.Range(1, 5) * 50f * Time.deltaTime;
 
 		x = System.Math.Min (5, x);
 		z = System.Math.Min (5, z);

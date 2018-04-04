@@ -25,7 +25,11 @@ The prefabs described in the previous section does not make the game works by ju
 # MATERIAL DELIVERED
 The elements delivered are: 
 - Code (shared in this repo)
-- Videos that explains how to run the game in each platform. Links to such videos can be found: <url 1> and <url 2>
+- The following video that explains the project and presents how this works per platform:
+https://youtu.be/WvZFeCoooSA
+
+- This video explains about achievements: https://youtu.be/494Q_UBWHC8
+
 
 # HARDWARE REQUIREMENTS
 
@@ -68,6 +72,7 @@ Every project usually has room for improvement and this is not the exception. TH
 - Improve networking so user does not have to know about IPs but only rooms. Each room should be created by those challenging other players.
 - Integrate the game into any multi-player platform where each user can gain 'coins' or similar mechanism each time a game starts. 
 - Add the feeling the game happens inside a stadium for the VR experience. When the AR experience is created, the table will only be displayed on top of the proyected area, there is no need here for supporting this immersive experience. 
+- Allow people to connect to the game as "viewers". This person will be located at a random spot with the audience. 
 
 # SCENES TO REVIEW
 For the capstone, only 4 scenes are provided:
@@ -75,6 +80,21 @@ For the capstone, only 4 scenes are provided:
 - Scenes/GEarVRCredits:
 - Scenes/GearVRAirHockey
 - Scenes/MacAirHockey
+
+# ACHIEVEMENTS
+The following achievements were completed per category:
+## Fundamentals
+- Scale 
+- Lightning 
+- Locomotion
+- Physics
+- Empathy
+
+## Completeness
+- Gamification
+
+## Challenges
+- Multiplayer
 
 # LICENSES
 Sound effects obtained from https://www.zapsplat.com

@@ -1,15 +1,15 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/HUD.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Player.cs">
     <Files>
-      <File FileName="Assets/Scripts/Player.cs" Line="105" Column="21" />
-      <File FileName="Assets/Scripts/GameLogic.cs" Line="211" Column="2" />
-      <File FileName="Assets/Scripts/Disk.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/HUD.cs" Line="23" Column="37" />
+      <File FileName="Assets/Scripts/GameLogic.cs" Line="267" Column="28" />
+      <File FileName="Assets/Scripts/Player.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Disk.cs" Line="129" Column="30" />
       <File FileName="Assets/Scripts/GoalLine.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/SceneBehavior.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/SceneBehavior.cs" Line="11" Column="39" />
       <File FileName="Assets/Scripts/QuitBehavior.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/AirHockeyNetworkBehaviour.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/HUD.cs" Line="116" Column="40" />
       <File FileName="Assets/Scripts/NumericKeyboard.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Utilities.cs" Line="1" Column="1" />
     </Files>
