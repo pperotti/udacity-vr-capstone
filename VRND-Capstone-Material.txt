@@ -1,0 +1,15 @@
+Dear Reviewer, 
+
+I'm glad to share with you the repo where all the contents for this project lives. The repo is: https://github.com/pperotti/udacity-vr-capstone
+
+Since the platform I choose for VR was GearVR, I cannot share with you an .apk without having your target device's signature. Everything is explained in the README.md file. I had the idea of delivering a much robust solution that covers ARCore, ARKit, Daydream and GearVR but the amount of problems with different versions let me drop such effort. I wanted to have 1 single project for all the platforms but unfortunately that was not possible. 
+
+Videos are uploaded to Youtube and the links are available in the README.md file. The pdf for pre-planning and scoping was also included in the repo so you can check it from there. 
+
+Please do no hesitate to contact me if there is something that was missing. 
+
+Have a good day,
+
+Pablo
+
+NOTES: I updated the README.md file in the repo to properly explain the points per section and how each achivement was fulfilled. Each section has the required 500 points. Previously I only forgot 1 of the items in the list and the video, error which I fixed in this submittion. I haven't recreate the full video but I added a note in the comments. 

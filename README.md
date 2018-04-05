@@ -83,18 +83,19 @@ For the capstone, only 4 scenes are provided:
 
 # ACHIEVEMENTS
 The following achievements were completed per category:
-## Fundamentals
-- Scale 
-- Lightning 
-- Locomotion
-- Physics
-- Empathy
+## Fundamentals (Section Total: 500 points)
+- Scale (100 points)
+- Lightning (100 points)
+- Locomotion (100 points)
+- Physics (100 points)
+- Empathy (100 points)
 
-## Completeness
-- Gamification
+## Completeness (Section Total: 500 points)
+- Gamification (250 points)
+- Diegetic UI Achievement (250 points)
 
-## Challenges
-- Multiplayer
+## Challenges (Section Total: 500 points)
+- Multiplayer (500 points)
 
 # LICENSES
 Sound effects obtained from https://www.zapsplat.com
